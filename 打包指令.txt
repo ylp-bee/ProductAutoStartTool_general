@@ -1,0 +1,23 @@
+﻿功能说明：可以自动化一键部署。
+打包指令：
+ pyinstaller -F -i jb.ico  ProductAutoStartTool.py -p D:\PycharmProjects\ProductAutoStartTool_rosa  --version-file  file_version_info.txt
+ 
+ 直接打包会出现闪退，提示No modoule！
+ 解决办法是：打包时加入你自编模块(或第三方模块所在文件夹路径)，程序中调用了自编模块()，在D:\PycharmProjects\ProductAutoStartTool_SD路径下。
+因此打包时需要添加路径进行打包。
+
+
+【加版本号的打包：】
+你可以在 Python 的安装目录，Scripts 文件夹下找到 pyi-grab_version 和pyi-set_version 这两个工具。 
+使用pyi-grab_version创建版本信息模板文件
+这里我以 QQ.exe 为例子。
+在CMD环境下执行命令 pyi-grab_version QQ.exe完整路径名（小技巧：可直接将QQ.exe拖曳到CMD窗口获得完整路径）；
+
+执行完后，我们会在pyi-grab_version.exe 文件的目录下获得一个 file_version_info.txt 文件。
+
+方法 1：在打包时加入版本信息
+在使用 PyInstaller 打包时加入选项 --version-file [后跟版本信息文件路径] ，例：
+pyinstaller -F -i tuzi.ico -w --version-file file_version_info.txt ProductAutoStartTool.py -p D:\PycharmProjects\ProductAutoStartTool
+方法 2：使用 pyi-set_version 为已经打包好的EXE文件添加版本信息
+为已经打包好的EXE文件添加或修改版本信息用这种方法；
+D:\Python\Python36-32\Scripts\pyi-set_version.exe D:\PycharmProjects\ProductAutoStartTool_rosa\file_version_info.txt  D:\PycharmProjects\ProductAutoStartTool_rosa\dist\ProductAutoStartTool.exe

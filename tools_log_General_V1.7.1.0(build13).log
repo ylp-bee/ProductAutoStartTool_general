@@ -1,0 +1,104 @@
+2020-10-30 15:28:21,049-<module>:41-INFO ********************使用说明**********************************
+【前置条件】
+      1.主程序为ProductAutoStartTool;在config.ini[setconfig]配置is_general=False为工业框架，is_general=True为通用框架
+      2.准备好数据库备份包、角色创建文件、数据库清除脚本，并且将路径写到配置文件config.ini的[dbpath]中；
+      3.将数据库名等信息写入到config.ini的[database_connection]中；
+      4.将location、location_relation、agv_info信息写入到excel文件里面，并将路径记录到config.ini的[excelpath]；
+      5.将地图放在etc文件里面，并将路径记录到config.ini的[layoutpath]；
+      5.将程序的路径、文件名写入到config.ini的[path]里面。
+【操作说明】
+在界面根据提示输入数字，含义分别表示：
+        1.一键更改数据库配置文件；
+        2.一键创建恢复数据库backup；
+        3.一键清理数据库；
+        4.关闭所有的进程(不包含仿真车载进程)；
+        5.一键启动进程（不包含仿真车载进程；先清理log，再启动进程；）；
+             55.一键重启webmonitor（关闭、清理log、启动）
+             56.一键重启OM（关闭、清理log、启动）
+        6.查询需要配置的xml文件；
+        7.修改dispatch_config.xml文件（包含location、location_relation、object，可为空）；
+        8.修改agv_info.xml文件；
+        9.复制layout（程序进程目录会优先进行清理）；
+        10.执行sql脚本路径；
+        11.获取当前版本号；
+        12.复制OM的TS模板；
+        13.一键重启车载（关闭、清理log、启动）
+          131.一键关闭仿真车载
+          132.一键启动仿真车载进程
+          133.一键清理车载log
+        14.清理调度引擎log。
+    0.退出。
+**************************************************************
+2020-10-30 15:28:21,150-<module>:57-INFO 目前进行BS通用框架的自动化部署
+2020-10-30 15:28:23,721-kill_process:505-INFO Star kill process:dispatch.exe!
+2020-10-30 15:28:23,830-kill_process:519-INFO End kill prcess:dispatch.exe !
+2020-10-30 15:28:23,830-kill_process:505-INFO Star kill process:dispatch_engine.exe!
+2020-10-30 15:28:23,954-kill_process:519-INFO End kill prcess:dispatch_engine.exe !
+2020-10-30 15:28:23,954-kill_process:505-INFO Star kill process:manage.exe!
+2020-10-30 15:28:24,061-kill_process:519-INFO End kill prcess:manage.exe !
+2020-10-30 15:28:24,061-kill_process:505-INFO Star kill process:rest_api.exe!
+2020-10-30 15:28:24,168-kill_process:519-INFO End kill prcess:rest_api.exe !
+2020-10-30 15:28:24,169-kill_process:505-INFO Star kill process:om.exe!
+2020-10-30 15:28:24,295-kill_process:519-INFO End kill prcess:om.exe !
+2020-10-30 15:28:24,295-kill_process:505-INFO Star kill process:chrome.exe!
+2020-10-30 15:28:24,418-kill_process:519-INFO End kill prcess:chrome.exe !
+2020-10-30 15:28:24,418-kill_process:505-INFO Star kill process:DBAI.exe!
+2020-10-30 15:28:24,527-kill_process:519-INFO End kill prcess:DBAI.exe !
+2020-10-30 15:28:24,527-kill_process:505-INFO Star kill process:nginx.exe!
+2020-10-30 15:28:24,646-kill_process:519-INFO End kill prcess:nginx.exe !
+2020-10-30 15:28:24,646-kill_process:505-INFO Star kill process:DataInterface.exe!
+2020-10-30 15:28:24,770-kill_process:519-INFO End kill prcess:DataInterface.exe !
+2020-10-30 15:28:24,770-kill_process:505-INFO Star kill process:app.exe!
+2020-10-30 15:28:24,877-kill_process:519-INFO End kill prcess:app.exe !
+2020-10-30 15:28:24,877-kill_process:505-INFO Star kill process:RemoteMonitor.exe!
+2020-10-30 15:28:24,993-kill_process:519-INFO End kill prcess:RemoteMonitor.exe !
+2020-10-30 15:28:27,104-psql_db:75-INFO command:"C:\Program Files\PostgreSQL\9.5.15\bin\psql.exe"  -h 127.1.0.0 -p 5432 -U postgres -d meite -f E:\meite\sql\clear.sql
+2020-10-30 15:28:28,818-psql_db:78-INFO ------Psql DB:meite Success!! results:0
+2020-10-30 15:28:31,650-delete_log:597-INFO start delete  process:['E:\\meite\\softwares\\Dispatch', 'E:\\meite\\softwares\\Engine', 'E:\\meite\\softwares\\OrderManager', 'E:\\meite\\webmonitor\\rest_api_0.1.23'] log!
+2020-10-30 15:28:31,664-delete_log:605-INFO end delete  process:['E:\\meite\\softwares\\Dispatch', 'E:\\meite\\softwares\\Engine', 'E:\\meite\\softwares\\OrderManager', 'E:\\meite\\webmonitor\\rest_api_0.1.23'] log!
+2020-10-30 15:28:31,664-func_engine:292-INFO Start open engine process!
+2020-10-30 15:28:31,694-func_engine:296-INFO End open engine process!,return content:0
+2020-10-30 15:28:36,695-func_dispath:282-INFO Start open dispath process!
+2020-10-30 15:28:36,726-func_dispath:286-INFO End open dispath process!,return content:0
+2020-10-30 15:28:41,727-func_om:301-INFO Start open om process!
+2020-10-30 15:28:42,056-func_om:305-INFO End open om process!,return content:0
+2020-10-30 15:28:42,056-func_rest_api:369-INFO start open rest_api process!
+2020-10-30 15:28:42,084-func_rest_api:372-INFO End open rest_api process!return content:1
+2020-10-30 15:28:47,084-func_bsmonitor:378-INFO start open monitor
+2020-10-30 15:28:47,107-func_bsmonitor:383-INFO End open monitor process!return content:1
+2020-10-30 15:28:49,108-func_open_webmonitor_web:312-INFO start webmonitor in  web!
+2020-10-30 15:28:49,139-func_open_webmonitor_web:315-INFO End webmonitor in  web!return content:0
+2020-11-04 12:08:12,187-<module>:41-INFO ********************使用说明**********************************
+【前置条件】
+      1.主程序为ProductAutoStartTool;在config.ini[setconfig]配置is_general=False为工业框架，is_general=True为通用框架
+      2.准备好数据库备份包、角色创建文件、数据库清除脚本，并且将路径写到配置文件config.ini的[dbpath]中；
+      3.将数据库名等信息写入到config.ini的[database_connection]中；
+      4.将location、location_relation、agv_info信息写入到excel文件里面，并将路径记录到config.ini的[excelpath]；
+      5.将地图放在etc文件里面，并将路径记录到config.ini的[layoutpath]；
+      5.将程序的路径、文件名写入到config.ini的[path]里面。
+【操作说明】
+在界面根据提示输入数字，含义分别表示：
+        1.一键更改数据库配置文件；
+        2.一键创建恢复数据库backup；
+        3.一键清理数据库；
+        4.关闭所有的进程(不包含仿真车载进程)；
+        5.一键启动进程（不包含仿真车载进程；先清理log，再启动进程；）；
+             55.一键重启webmonitor（关闭、清理log、启动）
+             56.一键重启OM（关闭、清理log、启动）
+        6.查询需要配置的xml文件；
+        7.修改dispatch_config.xml文件（包含location、location_relation、object，可为空）；
+        8.修改agv_info.xml文件；
+        9.复制layout（程序进程目录会优先进行清理）；
+        10.执行sql脚本路径；
+        11.获取当前版本号；
+        12.复制OM的TS模板；
+        13.一键重启车载（关闭、清理log、启动）
+          131.一键关闭仿真车载
+          132.一键启动仿真车载进程
+          133.一键清理车载log
+        14.清理调度引擎log。
+    0.退出。
+**************************************************************
+2020-11-04 12:08:12,288-<module>:57-INFO 目前进行BS通用框架的自动化部署
+2020-11-04 12:08:15,114-modify_agv_infoxml:323-INFO ---------------------------------start agv info config ....----------------------------------------------
+2020-11-04 12:08:15,161-modify_agv_infoxml:383-INFO ---------------------------------end agv info config----------------------------------------------
